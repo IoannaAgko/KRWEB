@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:krweb="http://www.mydomain.org/">
+	
+	<rdf:Description rdf:about="http://www.mydomain.org/Statement">
+		<rdf:subject rdf:resource="http://www.mydomain.org/" />
+		<rdf:predicate rdf:resource="http://www.mydomain.org/located_in" />
+		<rdf:object>Rio</rdf:object>
+		<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="Google">
+		<krweb:mentions_that rdf:resource="http://www.mydomain.org/Statement"/>
+	</rdf:Description>
+</rdf:RDF>

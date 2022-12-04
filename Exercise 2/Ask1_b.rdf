@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:krweb="http://www.mydomain.org/">
+
+	<rdf:Description rdf:about="http://www.mydomain.org/iliada">
+             <krweb:information rdf:nodeID="Information"/>
+        </rdf:Description>
+        <rdf:Description rdf:nodeID="Information">
+		<krweb:written_by>Poet</krweb:written_by>
+		<krweb:in_the>8th_century</krweb:in_the>
+		<krweb:where>Ionia</krweb:where>
+	</rdf:Description>
+	
+</rdf:RDF> 

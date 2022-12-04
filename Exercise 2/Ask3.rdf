@@ -1,0 +1,543 @@
+<?xml version="1.0"?>
+
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:krweb="http://www.mydomain.org/"
+	xml:base="http://www.mydomain.org/">
+	
+	<!--     6 Classes     -->
+
+    <rdfs:Class rdf:ID="Person"/>
+	<rdfs:Class rdf:ID="Student">
+		<rdfs:subClassOf rdf:resource="#Person"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:ID="Professor">
+		<rdfs:subClassOf rdf:resource="#Person"/>
+	</rdfs:Class>
+	<rdfs:Class rdf:ID="Department"/>
+	<rdfs:Class rdf:ID="Lesson"/>
+	<rdfs:Class rdf:ID="Classroom"/>
+
+	<!-- Person_Properties  -->  
+
+	<rdf:Property rdf:about="http://www.mydomain.org/has_name">
+		<rdfs:domain rdf:resource="http://www.mydomain.org/#Person"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+	</rdf:Property>
+    <rdf:Property rdf:about="http://www.mydomain.org/has_phone">
+		<rdfs:domain rdf:resource="http://www.mydomain.org/#Person"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="http://www.mydomain.org/has_email">
+		<rdfs:domain rdf:resource="http://www.mydomain.org/#Person"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="http://www.mydomain.org/has_age">
+		<rdfs:domain rdf:resource="http://www.mydomain.org/#Person"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Integer"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="http://www.mydomain.org/member_of">
+		<rdfs:domain rdf:resource="http://www.mydomain.org/#Person"/>
+		<rdfs:range rdf:resource="http://www.mydomain.org/#Department"/>
+	</rdf:Property>	
+
+
+	<!--    Professor_Properties   -->
+
+	<rdf:Property rdf:about="http://www.mydomain.org/teaches">
+		<rdfs:domain rdf:resource="http://www.mydomain.org/#Professor"/>
+		<rdfs:range rdf:resource="http://www.mydomain.org/#Lesson"/>
+	</rdf:Property>
+	
+	<!--    Lesson_Properties    -->
+
+	<rdf:Property rdf:about="http://www.mydomain.org/les_name">
+		<rdfs:domain rdf:resource="http://www.mydomain.org/#Lesson"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="http://www.mydomain.org/taught_by">
+		<rdfs:domain rdf:resource="http://www.mydomain.org/#Lesson"/>
+		<rdfs:range rdf:resource="http://www.mydomain.org/#Professor"/>
+	</rdf:Property>
+	
+	<!--     Department_Properties     -->
+
+	<rdf:Property rdf:about="http://www.mydomain.org/dep_name">
+		<rdfs:domain rdf:resource="http://www.mydomain.org/#Department"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="http://www.mydomain.org/dep_city">
+		<rdfs:domain rdf:resource="http://www.mydomain.org/#Department"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+	</rdf:Property>
+
+   <!--     Classroom_Properties       -->
+
+	<rdf:Property rdf:about="http://www.mydomain.org/room_name">
+		<rdfs:domain rdf:resource="http://www.mydomain.org/#Classroom"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="http://www.mydomain.org/room_capacity">
+		<rdfs:domain rdf:resource="http://www.mydomain.org/#Classroom"/>
+		<rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Integer"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="http://www.mydomain.org/room_department">
+		<rdfs:domain rdf:resource="http://www.mydomain.org/#Classroom"/>
+		<rdfs:range rdf:resource="http://www.mydomain.org/#Department"/>
+	</rdf:Property>
+
+	<!--      6 Departments     -->
+
+	<rdf:Description rdf:about="http://www.mydomain.org/CEID">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Department"/>
+		<krweb:dep_city>Patra</krweb:dep_city>
+		<krweb:dep_name>CEID</krweb:dep_name>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/PHYSICS">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Department"/>
+		<krweb:dep_city>Patra</krweb:dep_city>
+		<krweb:dep_name>PHYSICS</krweb:dep_name>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/PHILOSOPHY">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Department"/>
+		<krweb:dep_city>Patra</krweb:dep_city>
+		<krweb:dep_name>PHILOSOPHY</krweb:dep_name>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/MATHEMATICS">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Department"/>
+		<krweb:dep_city>Athens</krweb:dep_city>
+		<krweb:dep_name>MATHEMATICS</krweb:dep_name>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/CHEMISTRY">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Department"/>
+		<krweb:dep_city>Ioannina</krweb:dep_city>
+		<krweb:dep_name>CHEMISTRY</krweb:dep_name>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/PHILOLOGY">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Department"/>
+		<krweb:dep_city>Athens</krweb:dep_city>
+		<krweb:dep_name>PHILOLOGY</krweb:dep_name>
+	</rdf:Description>
+
+	<!--      10 Professors         -->
+
+	<rdf:Description rdf:about="http://www.mydomain.org/PanagiotisKavvadias">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Professor"/>
+		<krweb:has_name>Panagiotis Kavvadias</krweb:has_name>
+		<krweb:has_phone>6951245263</krweb:has_phone>
+		<krweb:has_age>35</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/CEID"/>
+		<krweb:teaches rdf:resource="http://www.mydomain.org/WEB" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/IoannaAgo">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Professor"/>
+		<krweb:has_name>Ioanna Ago</krweb:has_name>
+		<krweb:has_phone>564516815</krweb:has_phone>
+		<krweb:has_age>32</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/CEID"/>
+		<krweb:teaches rdf:resource="http://www.mydomain.org/Matlab" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/GeorgiaPappa">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Professor"/>
+		<krweb:has_name>Georgia Pappa</krweb:has_name>
+		<krweb:has_phone>6516517514</krweb:has_phone>
+		<krweb:has_age>34</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/PHILOSOPHY"/>
+		<krweb:teaches rdf:resource="http://www.mydomain.org/Sophoklis"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/AntonisPappas">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Professor"/>
+		<krweb:has_name>Antonis Pappas</krweb:has_name>
+		<krweb:has_phone>561541225</krweb:has_phone>
+		<krweb:has_age>40</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/MATHEMATICS"/>
+		<krweb:teaches rdf:resource="http://www.mydomain.org/Algebra" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/MariaPomoni">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Professor"/>
+		<krweb:has_name>Maria Pomoni</krweb:has_name>
+		<krweb:has_phone>691440004</krweb:has_phone>
+		<krweb:has_age>40</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/PHILOLOGY"/>
+		<krweb:teaches rdf:resource="http://www.mydomain.org/Latin" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/BabisSougias">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Professor"/>
+		<krweb:has_name>Babis Sougias</krweb:has_name>
+		<krweb:has_phone>691514555</krweb:has_phone>
+		<krweb:has_age>77</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/CEID"/>
+		<krweb:teaches rdf:resource="http://www.mydomain.org/Python" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/MagiaMelissa">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Professor"/>
+		<krweb:has_name>Magia Melissa</krweb:has_name>
+		<krweb:has_phone>691514845</krweb:has_phone>
+		<krweb:has_age>39</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/CHEMISTRY"/>
+		<krweb:teaches rdf:resource="http://www.mydomain.org/ChemicalBonds" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/EleniVlaxaki">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Professor"/>
+		<krweb:has_name>Eleni Vlaxaki</krweb:has_name>
+		<krweb:has_phone>691551415</krweb:has_phone>
+		<krweb:has_age>70</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/PHILOSOPHY"/>
+		<krweb:teaches rdf:resource="http://www.mydomain.org/Platonas" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/KostantinosKatakouzinos">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Professor"/>
+		<krweb:has_name>Konstantinos Katakouzinos</krweb:has_name>
+		<krweb:has_phone>691828515</krweb:has_phone>
+		<krweb:has_age>58</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/PHILOSOPHY"/>
+		<krweb:teaches rdf:resource="http://www.mydomain.org/Aristotelis" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/KaterinaSenia">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Professor"/>
+		<krweb:has_name>Katerina Senia</krweb:has_name>
+		<krweb:has_phone>691557715</krweb:has_phone>
+		<krweb:has_age>41</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/PHYSICS"/>
+		<krweb:teaches rdf:resource="http://www.mydomain.org/Stereo" />
+	</rdf:Description>	
+<!--    20 Students     -->
+
+	<rdf:Description rdf:about="http://www.mydomain.org/ArisGeorgiou">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Aris Georgiou</krweb:has_name>
+		<krweb:has_phone>690047471</krweb:has_phone>
+		<krweb:has_age>22</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/MATHEMATICS"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/AnnaSenia">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Anna Senia</krweb:has_name>
+		<krweb:has_phone>694512001</krweb:has_phone>
+		<krweb:has_age>20</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/MATHEMATICS"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/XaralamposKakalis">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Xaralampos Kakalis</krweb:has_name>
+		<krweb:has_phone>690475852</krweb:has_phone>
+		<krweb:has_age>21</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/PHILOLOGY"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/MixalisPetrou">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Mixalis Petrou</krweb:has_name>
+		<krweb:has_phone>69142563</krweb:has_phone>
+		<krweb:has_age>22</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/CEID"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/PanagiotaKroustali">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Panagiota Kroustali</krweb:has_name>
+		<krweb:has_phone>691474163</krweb:has_phone>
+		<krweb:has_age>20</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/PHYSICS"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/NasiaMikelopoulou">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Nasia Mikelopoulou</krweb:has_name>
+		<krweb:has_phone>69142563</krweb:has_phone>
+		<krweb:has_age>20</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/CEID"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/AggelikiDomna">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Aggeliki Domna</krweb:has_name>
+		<krweb:has_phone>694755552</krweb:has_phone>
+		<krweb:has_age>24</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/PHILOSOPHY"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/AggelosKarabatsos">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Aggelos Karabatsos</krweb:has_name>
+		<krweb:has_phone>691747478</krweb:has_phone>
+		<krweb:has_age>25</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/MATHEMATICS"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/PanosPapapetrou">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Panos Papapetrou</krweb:has_name>
+		<krweb:has_phone>68787552</krweb:has_phone>
+		<krweb:has_age>20</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/PHILOSOPHY"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/GiorgosKonstantaras">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Giorgos Konstantaras</krweb:has_name>
+		<krweb:has_phone>69885258</krweb:has_phone>
+		<krweb:has_age>25</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/PHYSICS"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/ElpidaLiakopoulou">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Elpida Liakopoulou</krweb:has_name>
+		<krweb:has_phone>697475556</krweb:has_phone>
+		<krweb:has_age>20</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/PHILOLOGY"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/ZefiPatrinou">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Zefi Patrinou</krweb:has_name>
+		<krweb:has_phone>691741235</krweb:has_phone>
+		<krweb:has_age>19</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/PHILOLOGY"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/DuaLipa">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Dua Lipa</krweb:has_name>
+		<krweb:has_phone>6916225222</krweb:has_phone>
+		<krweb:has_age>25</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/CEID"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/AntoniaPapadopoulou">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Antonia Papadopoulou</krweb:has_name>
+		<krweb:has_phone>69444000333</krweb:has_phone>
+		<krweb:has_age>21</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/PHYSICS"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/StavroulaPapapetrou">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Stavroula Papapetrou</krweb:has_name>
+		<krweb:has_phone>695632563</krweb:has_phone>
+		<krweb:has_age>20</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/PHILOLOGY"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/MixalisPapapetrou">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Mixalis Papapetrou</krweb:has_name>
+		<krweb:has_phone>69992012</krweb:has_phone>
+		<krweb:has_age>19</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/PHILOSOPHY"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/ValentinaIliopoulou">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Valentina Iliopoulou</krweb:has_name>
+		<krweb:has_phone>697894561</krweb:has_phone>
+		<krweb:has_age>22</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/CHEMISTRY"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/GwgwMpakogianni">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Gwgw Mpakogianni</krweb:has_name>
+		<krweb:has_phone>6914142522</krweb:has_phone>
+		<krweb:has_age>18</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/CEID"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/NelaSenia">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Nela Senia</krweb:has_name>
+		<krweb:has_phone>694745622</krweb:has_phone>
+		<krweb:has_age>25</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/PHYSICS"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/AnastasisGeorgiou">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Student"/>
+		<krweb:has_name>Anastasis Georgiou</krweb:has_name>
+		<krweb:has_phone>698695235</krweb:has_phone>
+		<krweb:has_age>24</krweb:has_age>
+		<krweb:member_of rdf:resource="http://www.mydomain.org/MATHEMATICS"/>
+	</rdf:Description>
+    
+	<!---    15 Lessons    -->
+	<rdf:Description rdf:about="http://www.mydomain.org/Python">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Lesson"/>
+		<krweb:les_name>Python</krweb:les_name>
+		<krweb:taught_by rdf:resource="http://www.mydomain.org/BabisSougias"/> 
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/Web">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Lesson"/>
+		<krweb:les_name>Web</krweb:les_name>
+		<krweb:taught_by rdf:resource="http://www.mydomain.org/PanagiotisKavvadias"/> 
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/Matlab">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Lesson"/>
+		<krweb:les_name>Matlab</krweb:les_name>
+		<krweb:taught_by rdf:resource="http://www.mydomain.org/IoannaAgo"/> 
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/Sophoklis">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Lesson"/>
+		<krweb:les_name>Sophoklis</krweb:les_name>
+		<krweb:taught_by rdf:resource="http://www.mydomain.org/GeorgiaPappa"/> 
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/Platonas">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Lesson"/>
+		<krweb:les_name>Platonas</krweb:les_name>
+		<krweb:taught_by rdf:resource="http://www.mydomain.org/EleniVlaxaki"/> 
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/Algebra">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Lesson"/>
+		<krweb:les_name>Algebra</krweb:les_name>
+		<krweb:taught_by rdf:resource="http://www.mydomain.org/AntonisPappas"/> 
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/Geometry">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Lesson"/>
+		<krweb:les_name>Geometry</krweb:les_name>
+		<krweb:taught_by rdf:resource="http://www.mydomain.org/AntonisPappas"/> 
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/Latin">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Lesson"/>
+		<krweb:les_name>Latin</krweb:les_name>
+		<krweb:taught_by rdf:resource="http://www.mydomain.org/MariaPomoni"/> 
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/ChemicalBonds">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Lesson"/>
+		<krweb:les_name>ChemicalBonds</krweb:les_name>
+		<krweb:taught_by rdf:resource="http://www.mydomain.org/MagiaMelissa"/> 
+	</rdf:Description>
+    <rdf:Description rdf:about="http://www.mydomain.org/Aristotelis">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Lesson"/>
+		<krweb:les_name>Aristotelis</krweb:les_name>
+		<krweb:taught_by rdf:resource="http://www.mydomain.org/KostantinosKatakouzinos"/> 
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/Stereo">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Lesson"/>
+		<krweb:les_name>Stereo</krweb:les_name>
+		<krweb:taught_by rdf:resource="http://www.mydomain.org/KaterinaSenia"/> 
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/Magnitismos">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Lesson"/>
+		<krweb:les_name>Magnitismos</krweb:les_name>
+		<krweb:taught_by rdf:resource="http://www.mydomain.org/KaterinaSenia"/> 
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/Arxaia">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Lesson"/>
+		<krweb:les_name>Arxaia</krweb:les_name>
+		<krweb:taught_by rdf:resource="http://www.mydomain.org/MariaPomoni"/> 
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/C">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Lesson"/>
+		<krweb:les_name>C</krweb:les_name>
+		<krweb:taught_by rdf:resource="http://www.mydomain.org/PanagiotisKavvadias"/> 
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/Biochemistry">
+		<rdf:type rdf:resource="http://www.mydomain.org/#Lesson"/>
+		<krweb:les_name>Biochemistry</krweb:les_name>
+		<krweb:taught_by rdf:resource="http://www.mydomain.org/MagiaMelissa"/> 
+	</rdf:Description>
+
+	<!---     Classrooms   -->
+	<!--   3 PHYSICS Classrooms   -->
+    <rdf:Description rdf:about="http://www.mydomain.org/PAM">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>PAM</krweb:room_name>
+        <krweb:room_capacity>200</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/PHYSICS" />
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.mydomain.org/PAM1">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>PAM1</krweb:room_name>
+        <krweb:room_capacity>300</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/PHYSICS" />
+    </rdf:Description>
+	<rdf:Description rdf:about="http://www.mydomain.org/PAM2">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>PAM2</krweb:room_name>
+        <krweb:room_capacity>500</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/PHYSICS" />
+    </rdf:Description>
+
+<!--   3 MATHEMATICS Classrooms   -->
+    <rdf:Description rdf:about="http://www.mydomain.org/AA">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>AA</krweb:room_name>
+        <krweb:room_capacity>160</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/MATHEMATICS" />
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.mydomain.org/AB">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>AB</krweb:room_name>
+        <krweb:room_capacity>350</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/MATHEMATICS" />
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.mydomain.org/AC">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>AC</krweb:room_name>
+        <krweb:room_capacity>250</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/MATHEMATICS" />
+    </rdf:Description>
+<!--   3 CEID Classrooms   -->
+    <rdf:Description rdf:about="http://www.mydomain.org/AFE">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>AFE</krweb:room_name>
+        <krweb:room_capacity>200</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/CEID" />
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.mydomain.org/AFK">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>AFK</krweb:room_name>
+        <krweb:room_capacity>150</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/CEID" />
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.mydomain.org/AFL">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>AFL</krweb:room_name>
+        <krweb:room_capacity>250</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/CEID" />
+    </rdf:Description>
+
+<!-- 3 PHILOLOGY Classrooms -->
+    <rdf:Description rdf:about="http://www.mydomain.org/SPAM">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>SPAM</krweb:room_name>
+        <krweb:room_capacity>180</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/PHILOLOGY" />
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.mydomain.org/SPAM2">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>SPAM2</krweb:room_name>
+        <krweb:room_capacity>220</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/PHILOLOGY" />
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.mydomain.org/SPAM3">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>SPAM3</krweb:room_name>
+        <krweb:room_capacity>250</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/PHILOLOGY" />
+    </rdf:Description>
+
+<!-- 3 PHILOSOPHY Classrooms -->
+    <rdf:Description rdf:about="http://www.mydomain.org/D2">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>D2</krweb:room_name>
+        <krweb:room_capacity>280</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/PHILOSOPHY" />
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.mydomain.org/D7">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>D7</krweb:room_name>
+        <krweb:room_capacity>320</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/PHILOSOPHY" />
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.mydomain.org/D4">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>D4</krweb:room_name>
+        <krweb:room_capacity>150</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/PHILOSOPHY" />
+    </rdf:Description>
+<!--3 CHEMISTRY Classrooms-->
+    <rdf:Description rdf:about="http://www.mydomain.org/AE1">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>AE1</krweb:room_name>
+        <krweb:room_capacity>190</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/CHEMISTRY"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.mydomain.org/AE2">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>AE2</krweb:room_name>
+        <krweb:room_capacity>300</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/CHEMISTRY"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.mydomain.org/AE4">
+        <rdf:type rdf:resource="http://www.mydomain.org/#Classroom"/>
+        <krweb:room_name>AE4</krweb:room_name>
+        <krweb:room_capacity>200</krweb:room_capacity>
+        <krweb:room_department rdf:resource="http://www.mydomain.org/CHEMISTRY"/>
+    </rdf:Description>
+</rdf:RDF>
